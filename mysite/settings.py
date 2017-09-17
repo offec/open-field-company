@@ -119,18 +119,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+ALLOWED_HOSTS = ['127.0.0.1', 'offec.pythonanywhere.com']
 
-ALLOWED_HOSTS = ['*']
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATIC_ROOT = 'staticfiles'
-
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
